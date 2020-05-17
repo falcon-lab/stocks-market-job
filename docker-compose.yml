@@ -1,0 +1,38 @@
+version: '3'
+services:
+  stocks-market-job:
+    build: .
+    container_name: stocks-market-job
+    ports:
+      - 8080:8080
+      - 8000:8000
+      - 5000:5000
+    environment:
+      VCAP_SERVICES: >
+        {
+         "postgresql":[{"credentials":{"dbname":"postgres","hostname":"postgres","password":"pguser","port":"5432","uri":"postgres://pguser:pguser@postgres:5432/postgres","username":"pguser"},"label":"postgresql","name":"nfe-authorize-postgres","plan":"v9.4-container","provider":null,"syslog_drain_url":null,"tags":["postgresql","relational"],"volume_mounts":[]}]
+         }
+      VCAP_APPLICATION: >
+        {
+          "cf_api":"https://api.cf.eu10.hana.ondemand.com"
+        }
+      JAVA_OPTS: "-Dhibernate.show_sql=false
+				  -Dlogging.level.com.stocksmarket.job=INFO
+                  -DLOG_ROOT_LEVEL=INFO
+                  -Djava.security.egd=file:/dev/./urandom
+                  -Dlogging.file=/tmp/stocks-market-job.log"
+      SPRING_PROFILES_ACTIVE: dev, cloud
+    depends_on:
+      - postgres
+
+  postgres:
+    hostname: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    build: db/postgres/
+    environment:
+      - POSTGRES_USER=pguser
+      - POSTGRES_PASSWORD=pguser
+      - POSTGRES_DB=postgres
+    restart: always

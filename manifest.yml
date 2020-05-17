@@ -1,0 +1,15 @@
+---
+applications:
+  - name: stocks-market-job
+    memory: 384M
+    path: target/stocks-market-job.jar
+    buildpacks:
+      - java_buildpack
+    env:
+      BUCKET:
+      JAVA_OPTS: "-XX:MaxDirectMemorySize=10M
+                  -XX:ReservedCodeCacheSize=120M"
+      JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 16}, jre: {version: 11.+}]'
+    services:
+      - stocks-market-logs
+      - stocks-market-postgres
