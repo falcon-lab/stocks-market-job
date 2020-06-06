@@ -46,7 +46,7 @@ public class SchedulerController {
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/job", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = RESOURCE_JOB, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity retrieveSchedules() {
 		try {
 			ScheduleResponse response = schedulerService.handleRetrieveSchedules();
