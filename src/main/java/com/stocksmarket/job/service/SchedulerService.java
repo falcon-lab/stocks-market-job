@@ -26,7 +26,7 @@ public class SchedulerService {
 	 * @param schedule
 	 * @throws JobSchedulerException
 	 */
-	public UUID jobSchedule(ScheduleRequest schedule) throws JobSchedulerException {
+	public UUID handleJobSchedule(ScheduleRequest schedule) throws JobSchedulerException {
 		return schedulerMediator.fireTrigger(schedule.getGroup(), schedule.getStock());
 	}
 

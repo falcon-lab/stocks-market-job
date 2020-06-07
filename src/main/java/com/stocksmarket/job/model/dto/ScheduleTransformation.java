@@ -53,7 +53,7 @@ public class ScheduleTransformation {
 	 * @param s
 	 * @return
 	 */
-	public int transformStringToInt(String s) {
+	private int transformStringToInt(String s) {
 		return Integer.parseInt(s);
 	}
 

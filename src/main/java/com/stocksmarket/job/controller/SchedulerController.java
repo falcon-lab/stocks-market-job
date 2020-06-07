@@ -34,7 +34,7 @@ public class SchedulerController {
 	@PostMapping(value = RESOURCE_JOB, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity registerSchedule(@RequestBody ScheduleRequest request) {
 		try {
-			UUID jobUUID = schedulerService.jobSchedule(request);
+			UUID jobUUID = schedulerService.handleJobSchedule(request);
 			String resource = PATH + RESOURCE_JOB + "/" + jobUUID;
 			
 			return ResponseEntity.created(URI.create(resource)).build();

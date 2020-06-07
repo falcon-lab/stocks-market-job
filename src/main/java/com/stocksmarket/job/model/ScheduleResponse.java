@@ -14,4 +14,7 @@ public class ScheduleResponse {
 		this.data = data;
 	}
 
+	public List<Schedule> getData() {
+		return data;
+	}
 }
