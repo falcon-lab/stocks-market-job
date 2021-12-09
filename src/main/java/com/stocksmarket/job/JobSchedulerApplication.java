@@ -10,3 +10,4 @@ public class JobSchedulerApplication {
 		SpringApplication.run(com.stocksmarket.job.JobSchedulerApplication.class, args);
 	}
 }
+
