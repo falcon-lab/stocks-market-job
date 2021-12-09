@@ -1,0 +1,23 @@
+{
+  "name": "stocks-market-job",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/falcon-lab/stocks-market-job.git",
+  "author": "Arthur Silva <arthur.silva@sap.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "cz",
+    "prepare": "husky instal"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
