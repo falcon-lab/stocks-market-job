@@ -24,6 +24,10 @@
 
 		<!-- plugins -->
 		<plugin.jacoco>0.8.7</plugin.jacoco>
+
+		<!-- sonarcloud -->
+		<sonar.organization>3a49f7ec72b460299d94ad90d10260c79d23c5a6</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<dependencies>
